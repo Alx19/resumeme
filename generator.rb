@@ -41,7 +41,7 @@ class Generator
   end
 
   def achivments
-    "Достижения на предыдущей работе: #{product}."
+    "Достижения на предыдущей работе: cоздал #{product}."
   end
 
   def product
