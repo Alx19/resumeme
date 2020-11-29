@@ -1,6 +1,5 @@
 class Generator
   require 'faker'
-  require 'petrovich'
   require 'yaml'
   require 'json'
   Faker::Config.locale = :ru
