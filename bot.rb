@@ -26,7 +26,8 @@ Telegram::Bot::Client.run(TOKEN) do |bot|
       chat_id = message.chat.id
       redis = Redis.new
       result = JSON.parse(redis.get(chat_id))
-      bot.api.send_message(chat_id: chat_id, text: "Самая топовая зарплата у #{result['username']} - #{result['biggest']} рублей 🤑")
+      bot.api.send_message(chat_id: chat_id, text: "Стастика временно недоступна 😢")
+      #bot.api.send_message(chat_id: chat_id, text: "Самая топовая зарплата у @#{result['username']} - #{result['biggest']} рублей 🤑")
       redis.close
     end
   end
