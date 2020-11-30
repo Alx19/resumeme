@@ -82,7 +82,8 @@ class Generator
       end
     results = @redis.get(@chat_id)
     biggest = results ? (JSON.parse(results)["biggest"]) : '0'
-    @redis.set(@chat_id, { biggest: total, username: @username }.to_json ) if total > biggest
+    biggest.gsub!(/\D/, '').to_i
+    @redis.set(@chat_id, { biggest: total, username: @username }.to_json ) if total.to_i > biggest
     total
   end
 end
