@@ -3,7 +3,7 @@ class Generator
   require 'yaml'
   require 'json'
   Faker::Config.locale = :ru
-  FIELDS = %i[name job education previous_job achivments travel salary].freeze
+  FIELDS = %i[name job education previous_job achivments skill travel salary].freeze
 
   def initialize(params)
     @username = params[:username]
@@ -30,6 +30,14 @@ class Generator
 
   def job
     'Работа: ' + jobs.sample
+  end
+
+  def skills
+    YAML.safe_load(File.read('skillz.yml'))
+  end
+
+  def skill
+    'Профессиональные навыки: ' + skills.sample + ', ' + skills.sample
   end
 
   def previous_job
