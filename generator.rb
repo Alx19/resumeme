@@ -37,7 +37,8 @@ class Generator
   end
 
   def skill
-    'Профессиональные навыки: ' + skills.sample + ', ' + skills.sample
+    skills_count = rand(1..3)
+    'Профессиональные навыки: ' + skills_count.times.map { skills.sample }.join(', ')
   end
 
   def previous_job
