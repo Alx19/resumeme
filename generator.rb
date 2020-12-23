@@ -24,12 +24,19 @@ class Generator
     (@name || Faker::Name.name) + "\n"
   end
 
+  def build_job(job)
+    return job if job.is_a? String
+
+    first = job.keys.first
+    [first, job[first].sample].join(' ')
+  end
+
   def jobs
     YAML.safe_load(File.read('jobs.yml'))
   end
 
   def job
-    'Работа: ' + jobs.sample
+    'Работа: ' + build_job(jobs.sample)
   end
 
   def skills
